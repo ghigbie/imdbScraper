@@ -9,7 +9,8 @@ const scrapeTitleList = async (scrapeTargetURL = movieTitleURL) => {
     const movies = $('tr').map( (index, element) => {
         return {
             title: $(element).find('td.titleColumn > a').text(),
-            url: $(element).find('td.titleColumn > a').attr('href'),
+            descriptionURL: $(element).find('td.titleColumn > a').attr('href'),
+            rank: index,
             year: $(element).find('td.titleColumn > span.secondaryInfo').text(),
             rating: $(element).find('td.ratingColumn.imdbRating > strong').text(),
         };
